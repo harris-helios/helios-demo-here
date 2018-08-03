@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 250px;
+}
+
+#app aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 250px;
+  padding: 10px 15px;
+}
+
+#logos {
+  height: 100px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+#logos img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #e5e5e5;
+}
+
+#logos span {
+  display: inline-block;
+  height: 100px;
+  vertical-align: middle;
+  margin: 0 10px;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#app aside ul {
+  list-style: none;
+  padding: 0 25px;
+}
+
+#app aside ul li {
+  margin-bottom: 30px;
+}
+
+#app aside ul li::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0px 7px 0 -25px;
+  border-radius: 50%;
+  border: 2px solid #e5e5e5;
+  background: transparent;
+  vertical-align: bottom;
+}
+
+#app aside ul li[data-complete="true"]::before {
+  background: green;
+}
+
+#app aside ul li[data-complete="error"]::before {
+  background: red;
+}
+
+#obs p {
+  display: none;
+}
+
+#obs[data-complete="error"] p {
+  display: block;
+}
