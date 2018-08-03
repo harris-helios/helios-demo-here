@@ -192,6 +192,8 @@ class App extends Component {
             <img src="https://helios.earth/explore/assets/images/apple-touch-icon.png" />
           </div>
 
+          <hr />
+
           <ul>
             <li data-complete={this.state.map}>
               Initialize HERE map
@@ -210,6 +212,14 @@ class App extends Component {
               </p>
             </li>
           </ul>
+
+          <hr />
+
+          <p id="github">
+            <small>
+              <a href="https://github.com/harris-helios/helios-demo-here">View on GitHub</a>
+            </small>
+          </p>
         </aside>
       </div>
     );

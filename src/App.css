@@ -16,15 +16,12 @@
   right: 0;
   bottom: 0;
   width: 250px;
-  padding: 10px 15px;
+  padding: 20px 15px;
 }
 
 #logos {
-  height: 100px;
+  height: 80px;
   overflow: hidden;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
   text-align: center;
 }
 
@@ -72,10 +69,29 @@
   background: red;
 }
 
+#app aside hr {
+  margin: 25px 0;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+}
+
 #obs p {
   display: none;
 }
 
 #obs[data-complete="error"] p {
   display: block;
+}
+
+#github {
+  text-align: center;
+}
+
+#github a {
+  color: #888;
+  text-decoration: none;
+}
+
+#github a:hover {
+  text-decoration: none;
 }
