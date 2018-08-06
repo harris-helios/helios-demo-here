@@ -25,7 +25,8 @@ class App extends Component {
   componentDidMount() {
     this.platform = new window.H.service.Platform({
       app_id: 'CUmx9HPYqjMefC4vsWPl',
-      app_code: 'UAOOJWuOwy1dhGJ8fywKDg'
+      app_code: 'UAOOJWuOwy1dhGJ8fywKDg',
+      useHTTPS: true
     });
 
     this.loadMap();
@@ -187,9 +188,9 @@ class App extends Component {
         <div id="map"></div>
         <aside>
           <div id="logos">
-            <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/16/cb/91/16cb9194-48db-d12a-fbb5-7469cfc3e4f7/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.jpg" />
+            <img alt="here-logo" src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/16/cb/91/16cb9194-48db-d12a-fbb5-7469cfc3e4f7/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-6.png/246x0w.jpg" />
             <span>+</span>
-            <img src="https://helios.earth/explore/assets/images/apple-touch-icon.png" />
+            <img alt="helios-logo" src="https://helios.earth/explore/assets/images/apple-touch-icon.png" />
           </div>
 
           <hr />
