@@ -114,7 +114,7 @@ class App extends Component {
   // Fetch observation for the route from the Helios Observations API
   //
   fetchObs(pline) {
-    fetch(`https://api.helios.earth/v1/observations/_search`, {
+    /*fetch(`https://api.helios.earth/v1/observations/_search`, {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({
@@ -127,10 +127,17 @@ class App extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
-    })
-    .then(response => response.json())
-    .then(this.fetchObsSuccess)
-    .catch(this.fetchObsError);
+    })*/
+
+    // use static data for demo
+    fetch('data.json')
+      .then(response => response.json())
+      .then(this.fetchObsSuccess)
+      .catch(this.fetchObsError);
+  }
+
+  fetchObsDemo() {
+
   }
 
   // Display the observation results (GeoJSON Feature Collection)
@@ -148,6 +155,16 @@ class App extends Component {
       anchor: { x: 15, y: 15 }
     });
 
+    const moist = new window.H.map.Icon(`${explore}/road-moist.png`, {
+      size: { w: 30, h: 30 },
+      anchor: { x: 15, y: 15 }
+    });
+
+    const wet = new window.H.map.Icon(`${explore}/road-wet.png`, {
+      size: { w: 30, h: 30 },
+      anchor: { x: 15, y: 15 }
+    });
+
     const group = new window.H.map.Group();
     this.map.addObject(group);
 
@@ -159,11 +176,25 @@ class App extends Component {
     }, false);
 
     results.features.forEach((feature) => {
+      if (!feature.properties.sensors.road_weather) return false;
+
+      let icon;
+      switch(feature.properties.sensors.road_weather.data) {
+        case 1:
+          icon = moist;
+          break;
+        case 3:
+          icon = wet;
+          break;
+        default:
+          icon = dry;
+      }
+
       const marker = new window.H.map.Marker({
         lat: feature.geometry.coordinates[1],
         lng: feature.geometry.coordinates[0]
       }, {
-        icon: dry
+        icon
       });
 
       marker.setData(`
